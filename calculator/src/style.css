@@ -1,0 +1,42 @@
+• {
+  margin:0;
+  padding:0;
+}
+
+body {
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #161b22;
+}
+
+.container {
+  background-color: white;
+  border: 1px solid black;
+  height: 35vh;
+  width: 32vh;
+  display:flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+}
+.numbers button {
+  margin-bottom: 3px;
+}
+
+#display {
+  border: 1px solid black;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+button {
+  color:white;
+  height: 3rem;
+  width: 3rem;
+  background-color: #238636;
+}
