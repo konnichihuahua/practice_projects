@@ -12,29 +12,35 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <template id="template">
+      <div class="book-item">
+      <p class="title">"How To Win Friends And Influence People"</p>
+      <p class="author">Dale Carnegie</p>
+      <p class="pages">69</p>
+      <button class="read">Read</button>
+      <button class="remove">Remove</button>
+      </div>
+    </template>
+    <div class="modal-container">
+      <div id="modal">
+        <h1>Add book</h1>
+        <label> Title </label> <input type="text" id="modal-title" />
+        <label> Author </label><input type="text" id="modal-author" />
+        <label> Pages </label><input type="text" id="modal-pages" />
+        <label> Have you read the book? </label>
+        <input type="checkbox" id="modal-checkbox" checked="true" />
+        <button class="add-book" id="modal-add">Add Book</button>
+      </div>
+    </div>
     <div class="main-header">
       <p id="logo">library</p>
     </div>
     <div class="content">
       <div class="button-area">
-        <button id="add-book">+Add book</button>
+        <button class="add-book" id="add-book">+Add book</button>
       </div>
       <div class="book-area">
-        <div class="book-item">
-          <p id="title">"How To Win Friends And Influence People"</p>
-          <p id="author">Dale Carnegie</p>
-          <p id="pages">69</p>
-          <button id="read">Read</button>
-          <button id="remove">Remove</button>
         </div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
-        <div class="book-item">Book 1</div>
       </div>
     </div>
   </body>
