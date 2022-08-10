@@ -27,37 +27,39 @@ function modalClick(e) {
 modalAdd.addEventListener('click', addBookModal);
 
 function addBookModal() {
-  let bookItem = {
-    title: modalTitle.value,
-    author: modalAuthor.value,
-    pages: modalPages.value,
-    read: modalCheckbox.checked,
-  };
-  myLibrary.push(bookItem);
-  generateBooks();
-  modalContainer.classList.toggle('show');
-  modalTitle.value = '';
-  modalAuthor.value = '';
-  modalPages.value = '';
-  modalCheckbox.checked = false;
-}
+  if (modalTitle.value && modalAuthor.value && modalPages.value) {
+    let bookItem = {
+      title: modalTitle.value,
+      author: modalAuthor.value,
+      pages: modalPages.value,
+      read: modalCheckbox.checked,
+    };
+    myLibrary.push(bookItem);
+    generateBooks();
+    modalContainer.classList.toggle('show');
+    modalTitle.value = '';
+    modalAuthor.value = '';
+    modalPages.value = '';
+    modalCheckbox.checked = false;
+  }
 
-function generateBooks() {
-  myLibrary.forEach(() => {
-    let bookItem = bookTemplate.content.cloneNode(true);
-    let bookTitle = bookItem.querySelector('.title');
-    let bookAuthor = bookItem.querySelector('.author');
-    let bookPages = bookItem.querySelector('.pages');
-    let bookRead = bookItem.querySelector('.read');
-    let bookRemove = bookItem.querySelector('.remove');
-    bookRemove.addEventListener('click', remove);
-    bookRead.addEventListener('click', unread);
-    bookTitle.textContent = modalTitle.value;
-    bookAuthor.textContent = modalAuthor.value;
-    bookPages.textContent = modalPages.value;
-    bookArea.appendChild(bookItem);
-  });
-  myLibrary = [];
+  function generateBooks() {
+    myLibrary.forEach(() => {
+      let bookItem = bookTemplate.content.cloneNode(true);
+      let bookTitle = bookItem.querySelector('.title');
+      let bookAuthor = bookItem.querySelector('.author');
+      let bookPages = bookItem.querySelector('.pages');
+      let bookRead = bookItem.querySelector('.read');
+      let bookRemove = bookItem.querySelector('.remove');
+      bookRemove.addEventListener('click', remove);
+      bookRead.addEventListener('click', unread);
+      bookTitle.textContent = modalTitle.value;
+      bookAuthor.textContent = modalAuthor.value;
+      bookPages.textContent = modalPages.value;
+      bookArea.appendChild(bookItem);
+    });
+    myLibrary = [];
+  }
 }
 function unread() {
   if (this.textContent === 'Read') {
