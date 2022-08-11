@@ -2,8 +2,13 @@ import './style.css';
 const tiles = Array.from(document.querySelectorAll('.tile'));
 const display = document.querySelector('.currentPlayer');
 const resetBtn = document.querySelector('button');
+const winnerContainer = document.querySelector('.winner');
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
+
+const X_WON = 'X_WON';
+const O_WON = 'O_WON';
+const TIE = 'TIE';
 
 // Algorithm:
 // add event listener to each tile
@@ -33,12 +38,15 @@ const winningCombination = [
   [2, 4, 6],
 ];
 function userAction(tile, index) {
-  tile.innerText = currentPlayer;
-
-  updateBoard(index);
-  validateResults();
-  changePlayer();
-  display.innerText = currentPlayer;
+  if (!tile.innerText) {
+    console.log(tile.innerText);
+    console.log(currentPlayer);
+    tile.innerText = currentPlayer;
+    updateBoard(index);
+    validateResults();
+    changePlayer();
+    display.innerText = currentPlayer;
+  }
 }
 
 function updateBoard(index) {
@@ -55,7 +63,7 @@ function changePlayer() {
 }
 
 function validateResults() {
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 8; i++) {
     let currentCombination = winningCombination[i];
     const a = board[currentCombination[0]];
     const b = board[currentCombination[1]];
@@ -65,17 +73,32 @@ function validateResults() {
       continue;
     }
     if (a === b && b === c) {
-      console.log(`${currentPlayer} won`);
+      announce(`${currentPlayer}_WON`);
       resetGame();
       break;
     }
     if (!board.includes('')) {
-      console.log('tie');
+      announce(TIE);
       resetGame();
     }
   }
 }
 
+function announce(winner) {
+  winnerContainer.classList.add('show');
+  switch (winner) {
+    case X_WON:
+      winnerContainer.innerText = `Player X Won!`;
+      break;
+    case O_WON:
+      winnerContainer.innerText = `Player O Won!`;
+      break;
+    case TIE:
+      winnerContainer.innerText = `It's a TIE!`;
+
+      break;
+  }
+}
 function resetGame() {
   console.log('reset!');
   board = ['', '', '', '', '', '', '', '', ''];
