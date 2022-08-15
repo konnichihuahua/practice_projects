@@ -34,13 +34,10 @@ add_task.addEventListener('click', (e) => {
   edit.addEventListener('click', (e) => {
     if (edit.innerText === 'Save') {
       edit.innerText = 'Edit';
-      e.target.parentNode.parentNode.childNodes[0].setAttribute(
-        'readonly',
-        'readonly'
-      );
+      new_task_content.setAttribute('readonly', 'readonly');
     } else {
       console.log(e.target.parentNode.parentNode.childNodes[0]);
-      e.target.parentNode.parentNode.childNodes[0].removeAttribute('readonly');
+      new_task_content.removeAttribute('readonly');
       edit.innerText = 'Save';
     }
   });
@@ -50,8 +47,8 @@ add_task.addEventListener('click', (e) => {
   del.innerText = 'Delete';
 
   new_task_actions.appendChild(del);
-  del.addEventListener('click', (e) => {
-    tasks.removeChild(e.target.closest('.task'));
+  del.addEventListener('click', () => {
+    tasks.removeChild(new_task);
   });
 
   task_input.value = '';
