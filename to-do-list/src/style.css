@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.task {
+  @apply mt-2 flex justify-between items-center px-5;
+}
+.task-content {
+  @apply appearance-none bg-transparent text-white;
+}
+
+.edit {
+  @apply appearance-none text-secondary bg-transparent p-2 flex-1;
+}
+
+.delete {
+  @apply appearance-none text-accent bg-transparent p-2
+}
+
+.actions{
+  @apply  space-x-4 flex;
+}

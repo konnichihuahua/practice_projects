@@ -22,30 +22,29 @@
 
     
     </nav>
-    <section id="main">
+    <section id="main" class='p-12'>
       <!-- Main Content -->
-      <div class="container border p-12 rounded border-opacity-40 flex flex-col px-6 mx-auto mt-20 w-2/5 min-h-full text-white space-y-3">
-          <p class="max-w-md text-3xl border-b border-opacity-60">Genesis's Tasks</p>
+      <div class="container border p-12 rounded border-opacity-40 flex flex-col px-6 mx-auto mt-20 min-h-full text-white space-y-3 min-w-100">
+          <p class="max-w-md text-3xl border-b border-opacity-60">Daily Tasks</p>
           <div class='text-xs opacity-60'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-          <a class="text-xs add-task rounded-full bg-accent py-2 px-4 text-center w-28"> + Add Task</a>
-        <!-- Categories -->
-          <div class='categories'>
-            <div class="daily"> 
-            <p class="max-wd-md text-2xl border-b border-opacity-60"> Daily Tasks</p>
-            <ul class='flex flex-col justify-center ml-3 text-s opacity-75 space-y-2 my-4'>
-              <li> <input type="checkbox"> Task #1 </li>
-              <li> <input type="checkbox"> Task #2 </li>
-              <li> <input type="checkbox"> Task #3 </li>
-            </ul>
-          </div>
-            <div class="other"> 
-            <p class="max-wd-md text-2xl border-b border-opacity-60"> Other Tasks</p>
-            <ul class='flex flex-col justify-center ml-3 text-s opacity-75 space-y-2 my-4'>
-              <li> <input type="checkbox"> Task #1 </li>
-              <li> <input type="checkbox"> Task #2 </li>
-              <li> <input type="checkbox"> Task #3 </li>
-            </ul>
-          </div>
+          <form class='space-x-2 flex'>
+            <input class='task-input rounded p-2 text-white bg-background border border-opacity-60 flex-1' type='text' placeholder='Write task here'> </input>
+            <button class="add-task text-md bg-transparent p-2 rounded-full text-primary"> +Add task</button>
+          </form>
+        <!-- Tasks -->
+          <section class='tasks'>
+            <!-- <p class="max-wd-md text-2xl border-b border-opacity-60"> Daily Tasks</p>
+            
+            <div class="task">
+              <div class="content">
+                <input type="text" class="task-content" placeholder='Task #1' readonly=''>
+              </div>
+              <div class="actions">
+                <button class="edit">Edit </button>
+                <button class="delete">Delete </button>
+              </div> -->
+            </div>
+          </section>
         </div>
       </div>
     </section>
