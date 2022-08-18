@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class='bg-background'>
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6 bg-background border-white border-b">
+      <!-- Flex container -->
+      <div class="flex items-center justify-between">
+      <!-- Logo -->
+        <h1 class="pt-2 font-sans bold text-3xl text-white text-opacity-80">weather</h1>
+      </div>
+
+    <section class="flex justify-center items-center min-h-screen">
+      <div class="bg-white p-10 rounded text-background space-y-6" id="card">
+        <div id="search-area" class='space-x-6 flex flex'>
+          <input type="text" id="search-input" class="rounded-full bg-background text-whit p-2 flex-1 w-full pl-6" placeholder='Manila'>
+          <button id="search-btn" class='bg-primary p-4 rounded-full'>Search</button>
+        </div>
+        <div id="weather">
+          <h2 id="city">Weather In Manila</h2>
+          <div id="temp">51 degrees</div>
+          <div id="description">Cloudy</div>
+          <div id="humidity">Humidity:60%</div>
+          <div id="wind-speed">Wind speed: 69km/h</div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
