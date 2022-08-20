@@ -11,23 +11,31 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body class='bg-background'>
+  <body>
     <!-- Navbar -->
-    <nav class="relative container mx-auto p-6 bg-background border-white border-b">
+    <nav class="mx-autob bg-background h-full">
       <!-- Flex container -->
       <div class="flex items-center justify-between">
-      <!-- Logo -->
-        <h1 class="pt-2 font-sans bold text-3xl text-white text-opacity-80">weather</h1>
+        <!-- Logo -->
+        <h1 class="py-6 pl-10 font-sans bold text-3xl text-white">weather</h1>
       </div>
-
+    </nav>
     <section class="flex justify-center items-center min-h-screen">
-      <div class="bg-white p-10 rounded text-background space-y-6" id="card">
-        <div id="search-area" class='space-x-6 flex flex'>
-          <input type="text" id="search-input" class="rounded-full bg-background text-whit p-2 flex-1 w-full pl-6" placeholder='Manila'>
-          <button id="search-btn" class='bg-primary p-4 rounded-full'>Search</button>
+      <div class="bg-background p-14 rounded text-white space-y-6" id="card">
+        <div id="search-area" class="space-x-6 flex flex">
+          <input
+            type="text"
+            id="search-input"
+            class="rounded-full bg-white text-whit p-2 flex-1 w-full pl-6"
+            placeholder="Manila"
+          />
+          <button id="search-btn" class="bg-transparent p-4 rounded-full">
+            Search
+          </button>
         </div>
-        <div id="weather">
-          <h2 id="city">Weather In Manila</h2>
+        <div id="weather" class="space-y-2">
+          <h1 class="text-3xl" id="city">Weather In Manila</h1>
+          <!-- <img src="src/tae.jpeg" alt='lol'> -->
           <div id="temp">51 degrees</div>
           <div id="description">Cloudy</div>
           <div id="humidity">Humidity:60%</div>
