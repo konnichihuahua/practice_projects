@@ -1,12 +1,10 @@
 import './style.css';
 import html from './index.html';
-
-const OPEN_WEATHER_API_KEY = '990c092bd44d1732829bfc49163e7e24';
-
+console.log(process.env);
 class Weather {
   fetchCoords(city) {
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=990c092bd44d1732829bfc49163e7e24`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${process.env.API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => this.fetchWeather(data));
@@ -16,7 +14,7 @@ class Weather {
     const lat = data[0].lat;
     const lon = data[0].lon;
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OPEN_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => this.displayWeather(data));
@@ -35,6 +33,9 @@ class Weather {
     document.getElementById(
       'wind-speed'
     ).innerText = `Wind Speed: ${windSpeed}km/h`;
+    document
+      .getElementById('icon')
+      .setAttribute('src', `http://openweathermap.org/img/wn/${icon}.png`);
   }
 }
 const search = document.getElementById('search-input');
@@ -42,5 +43,6 @@ const searchBtn = document.getElementById('search-btn');
 let app = new Weather();
 
 searchBtn.addEventListener('click', () => {
+  document.getElementById('weather').classList.toggle('.hide');
   app.fetchCoords(search.value);
 });

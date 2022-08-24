@@ -2,10 +2,10 @@
   "name": "weather",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --mode development"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,8 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
+    "express": "^4.18.1",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.16",
