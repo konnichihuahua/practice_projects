@@ -2,6 +2,7 @@ import './style.css';
 import html from './index.html';
 import icon from './assets/myIcon.png';
 // Create Map
+let firstLoad = true;
 let ISSCoords = [];
 let myCoords = [];
 const map = L.map('map').setView([0, 0], 1);
@@ -14,6 +15,13 @@ const myIcon = L.icon({
   iconUrl: icon,
   iconSize: [38, 38],
 });
+
+function drawLine() {
+  const line = L.polyline([ISSCoords, myCoords]).addTo(map);
+  console.log(ISSCoords);
+  ISSCoords = [];
+  console.log(ISSCoords);
+}
 
 function getISS() {
   fetch('https://api.wheretheiss.at/v1/satellites/25544')
@@ -30,6 +38,7 @@ function getISS() {
       const marker = L.marker([latitude, longitude], { icon: myIcon }).addTo(
         map
       );
+      drawLine();
     });
 }
 
@@ -44,16 +53,13 @@ function getmyLocation() {
 }
 
 function getDistFromISS() {
-  getmyLocation();
-  getISS();
-  rawLine();
-}
-
-function drawLine() {
-  console.log(ISSCoords);
-  console.log(myCoords);
-  let latlngs = [ISSCoords, myCoords];
-  let polyline = L.polyline(latlngs, { color: 'red' }).addTo(map);
+  if (firstLoad === true) {
+    getmyLocation();
+    getISS();
+    firstLoad = false;
+  } else {
+    getISS();
+  }
 }
 
 //This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
